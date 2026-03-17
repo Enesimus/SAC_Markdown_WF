@@ -75,7 +75,7 @@ Un bloque clínico puede ser:
 - una macro operativa
 - una pseudo-tabla o bloque estructurado especial
 
-### Definición: Bloque clínico
+### 4.1 Definición: Bloque clínico
 
 Un **bloque clínico** es la unidad mínima de información que debe mantenerse
 íntegra durante la segmentación del documento.
@@ -87,6 +87,19 @@ En SAC Markdown v1 se consideran bloques clínicos:
 - líneas por sistema (`@RESP`, `@HEMO`, etc.)
 - listas completas
 - párrafos narrativos
+
+### 4.2 Bloques principales
+
+Un documento SAC Markdown puede contener múltiples secciones mayores
+definidas por títulos `###`.
+
+En particular:
+
+- `### EVOLUCION`
+- `### INDICACIONES`
+
+El compilador podrá utilizar estas secciones para generar múltiples
+salidas independientes a partir de un mismo documento fuente.
 
 ## 5. Sintaxis base
 

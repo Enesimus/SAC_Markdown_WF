@@ -1,0 +1,86 @@
+``` mermaid
+
+---
+    # Frontmatter config, YAML comments
+    title: Ignored if specified in chart
+    
+    config:
+        theme: 
+        themeCSS: " #sed { fill: #99ccff }, #h1 { fill: #339966}, #m2 { fill: #339966}, #vm { fill: #003399}, #ex { fill: #ff9966} , #tx { fill: #8B0000} , #hf { fill: #663399} , #atb { fill: #669999} , #ic { fill: #7B68EE}  "
+        gantt:
+            useWidth: 900
+            rightPadding: 30
+            topAxis: true
+            numberSectionStyles: 
+---
+gantt 
+    title Evolución
+    dateFormat YYYY-MM-DD
+    todayMarker off
+    tickInterval 1d
+    axisFormat %d-%m
+        
+    section Administrativa
+        Hospitalizacion: h1, 2026-02-14, 2026-03-08
+        Traslado UTIP: milestone, m2, 2026-02-15, 1 m
+        Traslado UCIP: milestone, m2, 2026-02-16, 1 m
+
+    section Neurologia
+        Midazolam: sed, 2026-02-17, 2026-02-23
+        Fentanyl: sed, 2026-02-17, 2026-02-23
+        Dexmedetomidina: sed, 2026-02-19, 2026-03-07
+        Propofol: sed, 2026-02-21, 2026-02-23
+        Midazolam: sed, 2026-02-24, 2026-02-28
+        Fentanyl: sed, 2026-02-24, 2026-02-28
+        Propofol: sed, 2026-02-28, 2026-03-03
+        Lorazepam: sed, 2026-03-01, 2026-03-08
+        Metadona: sed, 2026-03-01, 2026-03-08
+        EEG (Desorganizacion basal leve): milestone, ex, 2026-03-03, 1m 
+        RM cerebro (): milestone, ex, 2026-03-05, 1m 
+        
+    section Respiratorio
+        VMI: vm, 2026-02-17, 2026-02-23
+        VMI: vm, 2026-02-24, 2026-03-03
+
+
+    section Infeccioso
+        Hantavirus (-): milestone, ex, 2026-02-14, 1m
+        Panel viral (Rinovirus +): milestone, ex, 2026-02-14, 1m
+        Panel gastrointestinal (E coli shiga, Sapovirus, Rotavirus): milestone, ex, 2026-02-15, 1m
+        CST (S pneumoniae): milestone, ex, 2026-02-18, 1m 
+        Hemocultivos (-): milestone, ex, 2026-02-18, 1m 
+        PCR 44 PCT 4.7: milestone, ex, 2026-02-19, 1m
+        Ceftriaxona: atb, 2026-02-19, 7d
+
+    section Hematologico
+        Transfusion PLT: milestone, tx, 2026-02-17, 1m
+        Transfusion GR: milestone, tx, 2026-02-17, 1m
+        Transfusion GR: milestone, tx, 2026-02-19, 1m
+        Transfusion GR: milestone, tx, 2026-02-21, 1m
+        Transfusion GR: milestone, tx, 2026-03-04, 1m
+
+    section Hemodinamia
+        Norepinefrina: dva, 2026-02-17, 2026-02-23
+
+
+    section Nefrología
+        Creatinina (0.64): milestone, ex, 2026-02-14, 1m
+        Creatinina (1.69) BUN (53): milestone, ex, 2026-02-15, 1m
+        Creatinina (2.24) BUN (58) Na (128): milestone, ex, 2026-02-15, 1m
+        Creatinina (2.59) BUN (62) Na (126): milestone, ex, 2026-02-16, 1m
+        Creatinina (3.6) BUN (85) Na (129): milestone, ex, 2026-02-17, 1m
+        TRR (HF): hf, 2026-02-17, 2026-02-23
+        Eco Renal (Nefropatia aguda bilateral): milestone, ex, 2026-02-18, 1m
+        Cambio Filtro: milestone, hf, 2026-02-20, 1m
+        TRR (HF): hf, 2026-02-24, 2026-02-28
+        Eval Nefro: milestone, ic, 2026-02-25, 1m 
+        Cambio Filtro: milestone, hf, 2026-02-26, 1m
+        Doppler renal (IR <=0.7>): milestone, ex, 2026-02-26 , 1m 
+        TRR (HDF): hf, 2026-03-02, 8h
+        TRR (HDF): hf, 2026-03-04, 8h
+        TRR (Cancelada): milestone, hf, 2026-03-06, 1m
+        Retiro Cat Dialisis: milestone, hf, 2026-03-08, 1m
+
+
+
+```
