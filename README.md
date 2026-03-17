@@ -16,7 +16,7 @@ Muchos registros clínicos electrónicos presentan limitaciones importantes para
 - dificultad para estructurar información clínica compleja
 - dificultad para visualizar la evolución longitudinal del paciente
 
-Como resultado, el clínico suele terminar escribiendo texto largo y sin estructura en el propio sistema, o bien usando herramientas intermedias (procesador de texto, bloc de notas) llenando los equipos de archivos intermediossin una lógica que facilite su uso posterior, como para poder consolidar en un resumen clínico o epicrisis.
+Como resultado, el clínico suele terminar escribiendo texto largo y sin estructura en el propio sistema, o bien usando herramientas intermedias (procesador de texto, bloc de notas) llenando los equipos de archivos intermedios sin una lógica que facilite su uso posterior, como para poder consolidar en un resumen clínico o epicrisis.
 
 ---
 
@@ -64,13 +64,10 @@ Script que transforma SAC Markdown en HTML compacto compatible con SAC.
 
 Funciones principales:
 
-convertir Markdown a HTML mínimo
-
-eliminar saltos de línea innecesarios
-
-contar caracteres
-
-dividir automáticamente el texto en bloques menores a 4000 caracteres cuando sea necesario
+- convertir Markdown a HTML mínimo
+- eliminar saltos de línea innecesarios
+- contar caracteres
+- dividir automáticamente el texto en bloques menores a 4000 caracteres cuando sea necesario
 
 Esto permite adaptar el contenido a las restricciones del sistema de registro clínico.
 
@@ -182,7 +179,7 @@ Próximos pasos:
 
 Este proyecto se distribuye como software libre para mejorar los flujos de documentación clínica.
 
-Ver archivo [LICENSE1](LICENSE) para más detalles.
+Ver archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
