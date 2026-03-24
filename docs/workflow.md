@@ -47,18 +47,17 @@ El texto clínico se redacta utilizando **SAC Markdown**, un dialecto simplifica
 Ejemplo:
 
 ```markdown
-### EVOLUCION
+# Evolucion
 
-**Diagnósticos**
+### Diagnosticos
 
 - Bronquiolitis grave
 - SDRA
 
-**Planes**
+### Planes
 
 @RESP VM invasiva
 @HEMO estable
-@INF completar ceftriaxona
 ```
 
 Este formato es:
@@ -172,6 +171,8 @@ Descripción de archivos:
 
 El workflow utiliza plantillas para reducir tiempo de redacción y mantener consistencia.
 
+Las plantillas se estructuran usando `#`, `##`, `###` según la jerarquía clínica.
+
 Ejemplos de plantillas:
 
 - evolución diaria
@@ -185,7 +186,24 @@ Las plantillas permiten iniciar rápidamente un documento estructurado.
 
 ---
 
-## 6. Manejo de límites de caracteres
+## 6. Tablas
+
+Soporte de tablas con html mínimo para situaciones especiales
+
+- Signos vitales
+- insulinoterapia
+- Esquemas breves
+
+---
+
+## 7. Validación y Advertencias
+
+- Detección temprana de errores durante tipeo
+- base futura para IntelliSense
+
+---
+
+## 8. Manejo de límites de caracteres
 
 Muchos sistemas de registro clínico imponen límites de caracteres por campo.
 
@@ -208,23 +226,23 @@ Cuando es necesario, un resumen largo puede dividirse entre:
 
 ---
 
-## 7. Ventajas del método
+## 9. Ventajas del método
 
 El uso de este workflow ofrece varias ventajas prácticas:
 
-**Redacción más rápida**
+### Redacción más rápida
 
 La estructura y las plantillas reducen el tiempo necesario para documentar.
 
-**Mejor legibilidad**
+### Mejor legibilidad
 
 Las evoluciones mantienen una estructura consistente.
 
-**Mayor seguridad**
+### Mayor seguridad
 
 El uso de un editor externo con autoguardado reduce el riesgo de pérdida de información.
 
-**Reutilización de información**
+### Reutilización de información
 
 El texto puede reutilizarse para:
 
@@ -233,13 +251,13 @@ El texto puede reutilizarse para:
 - presentaciones de caso
 - docencia
 
-**Visualización longitudinal**
+### Visualización longitudinal
 
 Los timelines permiten comprender rápidamente la evolución completa de un paciente.
 
 ---
 
-## 8. Alcance del proyecto
+## 10. Alcance del proyecto
 
 Este proyecto no busca reemplazar el registro clínico electrónico institucional.
 
@@ -251,7 +269,7 @@ Su objetivo es:
 
 ---
 
-## 9. Estado del proyecto
+## 11. Estado del proyecto
 
 El proyecto se encuentra actualmente en desarrollo.
 
@@ -265,7 +283,7 @@ Próximas etapas previstas:
 
 ---
 
-## 10. Filosofía del proyecto
+## 12. Filosofía del proyecto
 
 El workflow se basa en herramientas abiertas y reproducibles:
 

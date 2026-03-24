@@ -24,9 +24,10 @@ Genitales masculinos, muy discreto edema escrotal Pulsos simetricos, sin edema d
 
 **Planes:**
 **- FEN:** Régimen cero, restriccion de volumen hasta momento de iniciar hemofiltracion, cuando se liberara a 1500 ml/m2/d. Seguimiento con electrolitos.
-**- Respiratorio:** Cursando cuadro respiratorio con Rinovirus, con secreciones respiratorias y requerimiento intermitente de O2. Dado necesidad de hemofiltracion se decide conectar a VMI por antecedentes, y para manejo con sedacion 
+**- Respiratorio:** Cursando cuadro respiratorio con Rinovirus, con secreciones respiratorias y requerimiento intermitente de O2. Dado necesidad de hemofiltracion se decide conectar a VMI por antecedentes, y para manejo con sedacion.
 **- Hemodinamia:** Tendencia a la hipertension, requiere uso de nifedipino.
-**- Infeccioso:** Cursando Sd disenterico por _E coli_ productora de toxina shiga, sin sobreinfeccion bacteriana actual. Sin tratamiento antibiotico - Renal: En falla renal por SHU sin respuesta a infusion de diureticos, por lo que se decide iniciar hemofiltracion continua. Destaca que tiene BH acumulado medido negativo (-100). BUN 80 Crea >2.5. Hiponatremia moderada y potasio normal. Hemofiltracion en dosis renal, solo se dispone de filtro ST60 que apenas cubre requerimiento por tamaño. Se solicita reposicion de insumos
+**- Infeccioso:** Cursando Sd disenterico por _E coli_ productora de toxina shiga, sin sobreinfeccion bacteriana actual. Sin tratamiento antibiotico 
+**- Renal:** En falla renal por SHU sin respuesta a infusion de diureticos, por lo que se decide iniciar hemofiltracion continua. Destaca que tiene BH acumulado medido negativo (-100). BUN 80 Crea >2.5. Hiponatremia moderada y potasio normal. Hemofiltracion en dosis renal, solo se dispone de filtro ST60 que apenas cubre requerimiento por tamaño. Se solicita reposicion de insumos
 **- Hematológico:** Con trombocitopenia 21000. Se solicita transfusion de plaquetas para procedimientos (CVC + Cateter dialisis). Sin indicacion de transfusion de GR.
 **- Neurológico:** Paciente TEA, actualmente irritable que pudiera corresponder a encefalopatia. No ha presentado convulsiones. Sedoanalgesia habitual para VM. Se intuba primer intento con TOT 4.5 con cuff, queda a 14 cm. Cateter venoso central 5F 3L 13 cm Femoral derecho, sin incidentes. Cateter de hemodialisis Mahurkar 8F 12 cm fijo a 8 cm aprox yugular derecho, sin incidentes. Se hepariniza con 0.7 ml rama arterial y 0.8 ml rama venosa. Control radiologico ok.
 
@@ -62,7 +63,7 @@ Ketamina 20 mg IV SOS de ser necesario
 **Filtro:** ST60 (en limite de su capacidad)
 **Flujo sangre:** iniciar a 50 ml/min, aumentar hasta 100 ml/min
 **PBP:** (sustitucion prefiltro) 350 ml/h
-**Flujo sustutucion:** (posfiltro) 350 ml/h
+**Flujo sustitucion:** (posfiltro) 350 ml/h
 **Flujo diálisis:** 0 ml/h
 **Extraccion:** inicial 0 ml/h
 **Anticoagulacion:**
@@ -78,10 +79,6 @@ Respiratoria - Motora
 !regind
 
 ! indprev
-
-### REGISTRO INDICACIONES
-
-### INDICACIONES EN ENCUENTRO PREVIO
 
 ## RESUMEN DE TRASLADO
 
@@ -113,7 +110,8 @@ Dado evolución a oligoanuria, se traslada a UCIP el 16/02 para monitorizacion y
 **Evolucion por sistemas:**
 **- FEN:** Se mantiene con aportes algo restringidos desde ingreso, con hiponatremia, tendencia a hiperkalemia y acidosis metabólica. Tras inicio de reemplazo renal con aporte enteral pleno, con formula enriquecida con modulos, en general bien tolerado. Evaluado por fonoaudiologa el 06/03 se autoriza inicio de ingesta de papillas las que son bien toleradas.
 **- Respiratorio:** Sin requerimiento de O2 inicial, sin embargo en contexto de cuadro respiratorio (tos y secreciones) con rinovirus (+) y necesidad de sedacion profunda para instalacion de cateter de dialisis, se intuba y conecta ventilacion invasiva el 17/02. En general con parametros ventilatorios bajos, manteniendose intubado hasta el 23/02. Presenta falla de extubacion dentro de las primeras 24 horas, por falta de fuerza e hipotonia de via aerea superior. Se reintuba el 24/02, nuevamente con parametros bajos, hasta el 03/03 donde logra consolidar extubación. Suspende requerimiento de O2 y se mantiene en buenas condiciones respiratorias hasta el momento del traslado.
-**- Hemodinamico:** Algo hipertenso en relacion al periodo inicial de evolución de SHU. Tras conexion a VM requiere apoyo con norepinefrina en dosis bajas desde el 17 al 23/02, principalmente secundario a sedación. Posteriormente hemodinamia estable y sin conflicto. Sin otros medicamentos en ese sentido. - **- Infeccioso:** Evoluciona con ascenso de parametros inflamatorios. Posterior a conexion a VM e inicio de TRR se decide pancultivar, identificandose CST positivo a neumococo por lo que recibe ceftriaxona durante 7 días (19-26/02). Hemocultivos negativos. Disminucion de parametros inflamatorios y sin nueva evidencia de cuadro infeccioso. No ha requerido más antimicrobianos.
+**- Hemodinamico:** Algo hipertenso en relacion al periodo inicial de evolución de SHU. Tras conexion a VM requiere apoyo con norepinefrina en dosis bajas desde el 17 al 23/02, principalmente secundario a sedación. Posteriormente hemodinamia estable y sin conflicto. Sin otros medicamentos en ese sentido.
+**- Infeccioso:** Evoluciona con ascenso de parametros inflamatorios. Posterior a conexion a VM e inicio de TRR se decide pancultivar, identificandose CST positivo a neumococo por lo que recibe ceftriaxona durante 7 días (19-26/02). Hemocultivos negativos. Disminucion de parametros inflamatorios y sin nueva evidencia de cuadro infeccioso. No ha requerido más antimicrobianos.
 **- Renal:** Con oligoanuria, tras 24 horas de manejo por lo que se decide iniciar HFVVC el 17/02, procedimiento en general bien tolerado. Se mantiene en una primera etapa hasta el 23/02, pero sin inicio de diuresis adecuada, debiendo reiniciarse desde el 24 al 28/02. Tras este segundo periodo, presenta diuresis progresiva, con apoyo de furosemida en BIC, pero sin una respuesta de depuración adecuada manteniendo BUN sobre 60. Se decide realizar terapias abreviadas (alrededor de 8 h) de HDF las que se realizan los dias 02 y 04/03, bien toleradas. Desde el 04/03 con diuresis en aumento, con estabilizacion de BUN y franco descenso desde el 06/03, decidiendose suspender TRR. Desde entonces con electrolitos dentro de limites normales, diuresis sobre 1.5 ml/kg/h y normalizacion de BUN y creatinina (ultimo control BUN 29 y creatinina 0.46). Sin necesidad de diureticos desde el 04/03. Se retira cateter de dialisis el 08/03. Tiene ecografia renal inicial (19/02) con signos de nefropatia aguda bilateral. Fue evaluado por Nefrologo el 25/02, quien dado antecedente de probable encefalopatia solicita RM cerebro y EEG. Eco doppler renal muestra IR 0.7 bilateral. BUN y crea (09/03) en 27 y 0.41, con debito urinario en aumento sin diureticos.
 **- Neurologico:** Impresiona muy decaido e irritable. En VM requiere sedoanalgesia en aumento, inicialmente con midazolam y fentanyl, debiendo agregarse dexmedetomidina y propofol. Tras extubacion fallida del 23/02, reinicia sedacion, haciendose traslape a propofol, y requiriendo Hidrato de cloral. EEG informado con desorganizacion basal lenta. No presenta crisis convulsivas. RM cerebro con leve aumento de amplitud de subaracnoideo sin otras alteraciones. Suspende dexmedetomidina el 07/03. Clinicamente mucho mejor, risueño, conectado y tranquilo. Se mantiene aun con lorazepam y metadona, que pasa a via oral el 09/03.
 **- Hematologico:** Con anemia y trombocitopenia. Al momento de indicar TRR se decide transfundir con plaquetas. En relacion a anemia basal y a necesidad de TRR requiere 4 transfusiones de GR. Mantiene anemia pero sin rango transfusional actual.

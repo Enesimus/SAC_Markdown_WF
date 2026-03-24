@@ -58,7 +58,7 @@ Cateter 8.0 F
 Filtro ST60 (en limite de su capacidad) 
 Flujo sangre: iniciar a 50 ml/min, aumentar hasta 100 ml/min 
 PBP (sustitucion prefiltro) 350 ml/h 
-Flujo sustutucion (posfiltro) 350 ml/h 
+Flujo sustitucion (posfiltro) 350 ml/h 
 Flujo diálisis: 0 ml/h 
 Extraccion: inicial 0 ml/h
 Anticoagulacion: Heparina 8750 U/SF 50 ml a 1.5 ml/h [10] {36}

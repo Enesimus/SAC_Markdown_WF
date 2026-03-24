@@ -41,22 +41,37 @@ Un subconjunto simplificado de Markdown diseñado para escribir evoluciones clí
 Ejemplo:
 
 ```text
-### EVOLUCION
+# EVOLUCION
 
-**Diagnósticos**
+###Diagnósticos
 - Bronquiolitis grave
 - SDRA
 
 ---
 
-**Planes**
+### Planes
 
 @RESP VM invasiva
 @HEMO estable sin vasoactivos
 @INF completar ceftriaxona
+
+---
+
+# Indicaciones
+
+|FC|PA|FR|SatO_2|FiO_2|Temp|
+|135 lpm|80/40/55|28 rpm|92%|40%|36°C|
 ```
 
 Este formato es legible para el clínico y fácil de transformar.
+
+Características clave:
+
+- sintaxis mínima y clínica
+- tolerancia en la escritura
+- salida HTML consistente
+- soporte de evolución por sistemas
+- soporte de tablas clínicas simples
 
 ### 2. SAC Compiler
 
@@ -90,6 +105,96 @@ Esto facilita:
 - discusión de casos
 - reuniones clínicas
 - docencia
+
+---
+
+## Sintaxis principal (v1.1)
+
+### Jerarquía
+
+|Nivel|Sintaxis|Salida|
+|---|---|---|
+|Sección|`#`|No renderiza|
+|Título|`##`|`<h3>`|
+|Subtítulo|`###`|`<b>`|
+
+---
+
+## Sistemas
+
+```text
+@RESP: texto
+@resp texto
+@RESP : texto
+- Respiratorio: texto
+```
+
+Salida:
+
+```html
+<b>- Respiratorio:</b> texto
+```
+
+- entrada flexible
+- salida canónica
+
+---
+
+## Tablas
+
+Sintaxis:
+```text
+|A|B|C|
+|---|---|---|
+|1|2|3|
+```
+
+Reglas
+
+- máximo 6 columnas
+- máximo 10 filas
+- primera fila = encabezado
+
+Salida:
+
+```html
+<table><tr><th>A</th>...</tr>...</table>
+```
+
+---
+
+## Formato inline
+
+```markdown
+**negrita**
+_texto_
+__texto__
+x^2
+x_2
+```
+
+---
+
+## Separador
+
+```text
+---
+```
+
+Salida:
+
+```html
+<hr>
+```
+
+---
+
+## Macros
+
+```text
+!regind
+!indprev
+```
 
 ---
 
@@ -163,21 +268,31 @@ Además, al utilizar VSCode con autoguardado, se evita la pérdida de informaci�
 
 ## Estado del proyecto
 
-Proyecto en fase inicial de desarrollo.
+Versión actual: v1.1
 
-Próximos pasos:
+Cambios recientes:
 
-- definición formal de la sintaxis de SAC Markdown
-- desarrollo del compilador inicial
-- automatización de comandos en VSCode
-- creación de plantillas clínicas reutilizables
-- implementación de división automática en bloques <4000 caracteres
+- nueva jerarquía de sintaxis (#, ##, ###)
+- soporte de tablas
+- normalización de sistemas con alias
+- mejora en sanitización para SAC
+- introducción de warnings (en desarrollo)
+
+---
+
+## Filosofía
+
+- lenguaje clínico, no técnico
+- entrada flexible, salida estricta
+- mínimo HTML necesario
+- optimizado para uso real en UCI
+- Extensible a otras unidades clínicas
 
 ---
 
 ## Licencia
 
-Este proyecto se distribuye como software libre para mejorar los flujos de documentación clínica.
+Este proyecto se distribuye como software libre, bajo licencia GPL v3., para mejorar los flujos de documentación clínica.
 
 Ver archivo [LICENSE](LICENSE) para más detalles.
 
