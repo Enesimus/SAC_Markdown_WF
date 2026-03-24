@@ -289,6 +289,22 @@ function expandSystemCode(trimmed) {
   return `<b>- ${label}:</b> ${convertInline(content)}`;
 }
 
+function expandProblemCode(trimmed) {
+  const match = trimmed.match(/^@PROB\s+(.+?)(?:\s*:\s*(.*))?$/i);
+  if (!match) return null;
+
+  const problem = match[1].trim();
+  const content = (match[2] || "").trim();
+
+  if (!problem) return null;
+
+  if (content) {
+    return `<b>- ${convertInline(problem)}:</b> ${convertInline(content)}`;
+  }
+
+  return `<b>- ${convertInline(problem)}:</b>`;
+}
+
 function lineToHtml(line) {
 
   const trimmed = line.trim();
@@ -303,6 +319,9 @@ function lineToHtml(line) {
 }
 
   if (trimmed === "---") return "<hr>";
+
+  const problemLine = expandProblemCode(trimmed);
+  if (problemLine) return problemLine;
 
   const systemLine = expandSystemCode(trimmed);
   if (systemLine) return systemLine;
