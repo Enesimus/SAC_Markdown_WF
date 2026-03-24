@@ -1,6 +1,6 @@
-# INDICACIONES
+# Indicaciones
 
-## 
+## Indicaciones
 
 **Peso**:  kg - **Talla**:  cm - **SC**:  m^2
 

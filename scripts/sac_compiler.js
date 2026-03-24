@@ -14,7 +14,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const MAX_CHARS = 3950;
+const MAX_CHARS = 3900;
 
 const SILENT_ROOT_SECTIONS = new Set([
   "evolucion",
@@ -25,28 +25,6 @@ const MACROS = {
   regind: "<b>REGISTRO INDICACIONES</b>",
   indprev: "<b>INDICACIONES EN ENCUENTRO PREVIO</b>",
 };
-
-// const SYSTEM_LABELS = [
-//   "FEN",
-//   "Respiratorio",
-//   "Hemodinamico",
-//   "Hemodinámico",
-//   "Infeccioso",
-//   "Renal",
-//   "Neurologico",
-//   "Neurológico",
-//   "Hematologico",
-//   "Hematológico",
-//   "Endocrinologico",
-//   "Endocrinológico",
-//   "Gastroenterológico",
-//   "Gastroenterologico",
-//   "Inmunológico",
-//   "Inmunologico",
-//   "Quirurgico",
-//   "Quirúrgico",
-//   "Social",
-// ];
 
 const SYSTEM_MAP = {
   fen: "FEN",
@@ -105,23 +83,22 @@ function normalizeHeadingTitle(raw) {
 function sanitizeSacText(text) {
   if (!text) return "";
 
-  return text
-    // por si viene texto previamente escapado
+  return String(text)
     .replace(/&gt;/gi, ">")
     .replace(/&lt;/gi, " menor que ")
     .replace(/&amp;/gi, " y ")
+    .replace(/&quot;/gi, "")
+    .replace(/&#39;/gi, "")
+    .replace(/&apos;/gi, "")
 
-    // caracteres problemáticos para SAC
+    .replace(/#/g, "")
     .replace(/&/g, " y ")
     .replace(/;/g, ",")
-    .replace(/\$/g, " pesos ")
     .replace(/"/g, "")
     .replace(/'/g, "")
+    .replace(/`/g, "")
 
-    // evitar inyección accidental de tags
     .replace(/</g, " menor que ")
-
-    // compactar espacios
     .replace(/\s{2,}/g, " ")
     .trim();
 }
@@ -169,7 +146,7 @@ function normalizeClinicalInlineSystems(source) {
   return normalized.join("\n");
 }
 
-/**
+/*
  * Limpieza general previa.
  */
 function preprocessSource(source) {
@@ -190,24 +167,14 @@ function splitIntoTopLevelSections(source) {
   let current = null;
 
   for (const line of lines) {
-    const h2 = line.match(/^##\s+(.*)$/);
-    const h3 = line.match(/^###\s+(.*)$/);
+    const h1 = line.match(/^#\s+(.*)$/);
 
-    if (h2) {
+    // Solo # abre una nueva sección raíz
+    if (h1) {
       if (current) sections.push(current);
       current = {
-        level: 2,
-        title: normalizeHeadingTitle(h2[1]),
-        lines: [],
-      };
-      continue;
-    }
-
-    if (h3 && !current) {
-      if (current) sections.push(current);
-      current = {
-        level: 3,
-        title: normalizeHeadingTitle(h3[1]),
+        level: 1,
+        title: normalizeHeadingTitle(h1[1]),
         lines: [],
       };
       continue;
@@ -215,7 +182,7 @@ function splitIntoTopLevelSections(source) {
 
     if (!current) {
       current = {
-        level: 2,
+        level: 1,
         title: "DOCUMENTO",
         lines: [],
       };
@@ -230,19 +197,34 @@ function splitIntoTopLevelSections(source) {
 
 function splitSubsections(lines) {
   const blocks = [];
-  let current = { type: "body", title: null, lines: [] };
+  let current = { type: "body", title: null, level: null, lines: [] };
 
   for (const line of lines) {
+    const h2 = line.match(/^##\s+(.*)$/);
     const h3 = line.match(/^###\s+(.*)$/);
+
+    if (h2) {
+      if (current.lines.length || current.title) blocks.push(current);
+      current = {
+        type: "h2block",
+        title: normalizeHeadingTitle(h2[1]),
+        level: 2,
+        lines: [],
+      };
+      continue;
+    }
+
     if (h3) {
       if (current.lines.length || current.title) blocks.push(current);
       current = {
         type: "h3block",
         title: normalizeHeadingTitle(h3[1]),
+        level: 3,
         lines: [],
       };
       continue;
     }
+
     current.lines.push(line);
   }
 
@@ -277,16 +259,20 @@ function expandMacro(trimmed) {
 }
 
 function expandSystemCode(trimmed) {
-  const match = trimmed.match(/^@([A-ZÁÉÍÓÚÑa-záéíóúñ]+)\s*:?\s+(.+)$/);
+  const match = trimmed.match(/^@([A-ZÁÉÍÓÚÑa-záéíóúñ]+)\s*:?\s*(.*)$/);
   if (!match) return null;
 
   const code = match[1].toUpperCase();
-  const content = match[2];
+  const content = (match[2] || "").trim();
 
   const label = SYSTEM_CODES[code];
   if (!label) return null;
 
-  return `<b>- ${label}:</b> ${convertInline(content)}`;
+  if (content) {
+    return `<b>- ${label}:</b> ${convertInline(content)}`;
+  }
+
+  return `<b>- ${label}:</b>`;
 }
 
 function expandProblemCode(trimmed) {
@@ -312,11 +298,6 @@ function lineToHtml(line) {
 
   const macro = expandMacro(trimmed);
   if (macro) return macro;
-
-  if (trimmed.startsWith("### ")) {
-  const title = trimmed.replace(/^###\s+/, "");
-  return `<h3>${convertInline(title)}</h3>`;
-}
 
   if (trimmed === "---") return "<hr>";
 
@@ -406,33 +387,14 @@ function renderSimpleTable(tableLines) {
   return `<table>${htmlRows}</table>`;
 }
 
-function isTableLine(line) {
-  const trimmed = line.trim();
-  return /^\|.*\|$/.test(trimmed);
-}
-
-function isTableSeparatorLine(line) {
-  const trimmed = line.trim();
-  return /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(trimmed);
-}
-
-function parseTableRow(line) {
-  return line
-    .trim()
-    .replace(/^\|/, "")
-    .replace(/\|$/, "")
-    .split("|")
-    .map(cell => cell.trim());
-}
-
 function blockToHtml(block) {
   const pieces = [];
 
   if (block.title) {
-    if (isOperationalH3(block.title)) {
-      pieces.push(`<b>${convertInline(block.title)}</b>`);
-    } else {
+    if (block.level === 2) {
       pieces.push(`<h3>${convertInline(block.title)}</h3>`);
+    } else {
+      pieces.push(`<b>${convertInline(block.title)}</b>`);
     }
   }
 
@@ -449,11 +411,11 @@ function blockToHtml(block) {
       }
 
       body.push(renderSimpleTable(tableLines));
-    continue;
+      continue;
     }
 
-  const html = lineToHtml(line);
-  if (html) body.push(html);
+    const html = lineToHtml(line);
+    if (html) body.push(html);
   }
 
   let joined = body.join("<br>");
@@ -468,32 +430,22 @@ function blockToHtml(block) {
 
   if (joined) pieces.push(joined);
 
-  return pieces.join("");
+  return pieces.join("<br>");
 }
 
 function sectionToHtml(section) {
-  const pieces = [];
-  const sectionSlug = slugify(section.title || "");
-
-  if (
-    section.title &&
-    section.title !== "DOCUMENTO" &&
-    !SILENT_ROOT_SECTIONS.has(sectionSlug)
-  ) {
-    pieces.push(`<h3>${convertInline(section.title)}</h3>`);
-  }
-
   const subblocks = splitSubsections(section.lines);
-  const rendered = subblocks
+  let html = subblocks
     .map(blockToHtml)
     .filter(Boolean)
     .join("<br>");
 
-  let html = pieces.join("") + rendered;
-
   html = html
-    .replace(/<\/h3><br><h3>/g, "</h3><h3>")
+    .replace(/<\/h3><br><b>/g, "</h3><b>")
     .replace(/<\/b><br><b>/g, "</b><br><b>")
+    .replace(/<br><hr><br>/g, "<hr>")
+    .replace(/<br><hr>/g, "<hr>")
+    .replace(/<hr><br>/g, "<hr>")
     .replace(/(<br>){3,}/g, "<br><br>")
     .trim();
 

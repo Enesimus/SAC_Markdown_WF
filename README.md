@@ -43,7 +43,7 @@ Ejemplo:
 ```text
 # EVOLUCION
 
-###Diagnósticos
+### Diagnósticos
 - Bronquiolitis grave
 - SDRA
 
@@ -60,6 +60,7 @@ Ejemplo:
 # Indicaciones
 
 |FC|PA|FR|SatO_2|FiO_2|Temp|
+|---|---|---|---|---|---|
 |135 lpm|80/40/55|28 rpm|92%|40%|36°C|
 ```
 
@@ -143,6 +144,7 @@ Salida:
 ## Tablas
 
 Sintaxis:
+
 ```text
 |A|B|C|
 |---|---|---|
@@ -274,9 +276,8 @@ Cambios recientes:
 
 - nueva jerarquía de sintaxis (#, ##, ###)
 - soporte de tablas
-- normalización de sistemas con alias
+- normalización de sistemas con alias (en desarrollo)
 - mejora en sanitización para SAC
-- introducción de warnings (en desarrollo)
 
 ---
 

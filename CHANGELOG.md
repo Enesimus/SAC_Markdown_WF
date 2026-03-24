@@ -15,15 +15,12 @@
   - Hasta 10 filas
   - Primera fila como encabezado (`<th>`)
   - Validación estructural básica
-- Sistema de alias para códigos clínicos (ej: RESP, HEMO, INF)
-- Normalización tolerante de entrada:
+0- Normalización tolerante de entrada:
   - soporte de mayúsculas/minúsculas
   - tolerancia a espacios variables (`@RESP:`, `@resp :`, etc.)
 - Definición de caracteres conflictivos en SAC y sanitización adaptada
-- Introducción de sistema de warnings (no bloqueantes):
-  - sistemas desconocidos
-  - macros inexistentes
-  - tablas inválidas
+- Base para normalización tolerante de sistemas clínicos
+- Soporte experimental para `@PROB`
 
 ### Changed
 
@@ -54,6 +51,7 @@
 - Esta versión introduce cambios estructurales importantes en la sintaxis (breaking changes respecto a v1.0)
 - Se recomienda utilizar la nueva jerarquía (`#`, `##`, `###`) para todas las plantillas futuras
 - La especificación v1.1 formaliza el lenguaje como un DSL clínico con entrada flexible y salida canónica
+- Warnings e IntelliSense quedan planificados para desarrollo futuro
 
 ---
 

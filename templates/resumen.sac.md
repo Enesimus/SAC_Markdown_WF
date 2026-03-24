@@ -10,9 +10,15 @@
 **F Ingreso UCIP:**
 **F Resumen:**
 
+---
+
 ### Diagnósticos
 
+---
+
 ### Antecedentes
+
+---
 
 ### Evolución por Sistemas
 
@@ -28,5 +34,7 @@
 @GASTRO:
 @INMUNO:
 @SOCIAL:
+
+---
 
 ### Planes de traslado
